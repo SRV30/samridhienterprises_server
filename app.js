@@ -37,6 +37,12 @@ const aboutUs = require("./routes/aboutUsRoute");
 const paymentDetails = require("./routes/paymentDetailsRoute");
 const adminRoutes = require("./routes/adminRoute");
 
+app.get("/",(request,response)=>{
+  response.json({
+      message : "Server is running " + PORT
+  })
+})
+
 app.use("/api/se", product);
 app.use("/api/se", user);
 app.use("/api/se", order);
