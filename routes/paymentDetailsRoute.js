@@ -4,9 +4,9 @@ const {
   updatePaymentDetails,
 } = require("../controllers/paymentDetailsController");
 const router = express.Router();
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+// const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
-router.route("/get/paymentDetails").get(isAuthenticatedUser, getPaymentDetails);
-router.route("/update/paymentDetails").put(isAuthenticatedUser, authorizeRoles("admin"), updatePaymentDetails);
+router.route("/get/paymentDetails").get(getPaymentDetails);
+router.route("/update/paymentDetails").put(updatePaymentDetails);
 
 module.exports = router;
