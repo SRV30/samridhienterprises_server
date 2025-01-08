@@ -1,4 +1,4 @@
-const AboutUs = require("../models/aboutUs");
+const AboutUs = require("../models/aboutUsModel");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 exports.getAboutUs = catchAsyncErrors(async (req, res) => {

@@ -1,8 +1,9 @@
 const User = require("../models/userModel");
 const Product = require("../models/productModel");
 const Order = require("../models/orderModel");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
-exports.getAdminData = async (req, res) => {
+exports.getAdminData = catchAsyncErrors(async (req, res) => {
   try {
     const usersCount = await User.countDocuments();
 
@@ -39,4 +40,4 @@ exports.getAdminData = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: "Server error" });
   }
-};
+});

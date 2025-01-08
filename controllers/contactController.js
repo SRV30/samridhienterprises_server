@@ -1,6 +1,7 @@
-const Contact = require("../models/ContactMessage");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const Contact = require("../models/ContactMessageModel");
 
-exports.submitContactForm = async (req, res) => {
+exports.submitContactForm = catchAsyncErrors(async (req, res) => {
   const { name, email, phone, message } = req.body;
 
   try {
@@ -16,18 +17,18 @@ exports.submitContactForm = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }
-};
+});
 
-exports.getContactForms = async (req, res) => {
+exports.getContactForms = catchAsyncErrors(async (req, res) => {
   try {
     const contacts = await Contact.find();
     res.status(200).json(contacts);
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }
-};
+});
 
-exports.deleteContactForms = async (req, res) => {
+exports.deleteContactForms = catchAsyncErrors(async (req, res) => {
   try {
     const contactsToDelete = await Contact.find().sort({ date: 1 }).limit(-50);
     await Contact.deleteMany({
@@ -37,4 +38,4 @@ exports.deleteContactForms = async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: "Server error" });
   }
-};
+});

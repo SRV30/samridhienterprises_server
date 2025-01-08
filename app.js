@@ -32,10 +32,10 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
 const order = require("./routes/orderRoute");
-const contactRoutes = require("./routes/contactRoutes");
-const aboutUs = require("./routes/aboutUs");
+const contactRoutes = require("./routes/contactRoute");
+const aboutUs = require("./routes/aboutUsRoute");
 const paymentDetails = require("./routes/paymentDetailsRoute");
-const adminRoutes = require("./routes/adminRoutes");
+const adminRoutes = require("./routes/adminRoute");
 
 app.use("/api/se", product);
 app.use("/api/se", user);
