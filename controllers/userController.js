@@ -206,6 +206,12 @@ exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
       new ErrorHandler(`User does not exits with Id: ${req.params.id}`)
     );
   }
+res.cookie('token', token, {
+  httpOnly: true,    
+  secure: true,      
+  sameSite: 'None',  
+  maxAge: 3600000, 
+});
 
   res.status(200).json({
     success: true,
