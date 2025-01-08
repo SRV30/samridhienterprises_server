@@ -21,6 +21,8 @@ const server = app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
 
+module.exports = app;
+
 process.on("unhandledRejection", (err) => {
   console.error(`Error: ${err.message}`);
   console.error(`Shutting down the server due to Unhandled Promise Rejection`);
