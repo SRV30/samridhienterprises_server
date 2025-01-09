@@ -13,14 +13,6 @@ app.use(
   cors({
     origin: "https://samridhienterprises.vercel.app",
     methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
-    exposedHeaders: ["Authorization"],
     credentials: true,
   })
 );
