@@ -14,7 +14,11 @@ const sendToken = (user, statusCode, res) => {
     .json({
       success: true,
       message: "Authenticated successfully",
-      user,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+      },
       token,
     });
 };
